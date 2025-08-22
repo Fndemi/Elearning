@@ -7,6 +7,7 @@ import { Signup } from "./pages/SignupPage";
 import { ChangePassword } from "./pages/ResetPasswordPage";
 import QuizPage from "./components/QuizPage";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import StudentDashboard from "./pages/StudentDashboard"; // ✅ import dashboard
 
 function App() {
   return (
@@ -54,6 +55,18 @@ function App() {
               onPrevLesson={() => console.log("Go to previous lesson")}
             />
           </Layout>
+        }
+      />
+
+      {/* Student Dashboard (Protected) */}
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute role="student">
+            <Layout>
+              <StudentDashboard />
+            </Layout>
+          </ProtectedRoute>
         }
       />
 

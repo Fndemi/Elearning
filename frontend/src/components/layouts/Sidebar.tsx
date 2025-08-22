@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 import clsx from "clsx";
 
 const studentLinks = [
-  { name: "Dashboard", path: "/dashboard" },
+  { name: "Dashboard", path: "/studentdashboard" },
   { name: "Browse Courses", path: "/courses" },
   { name: "My Courses", path: "/my-courses" },
   { name: "Notifications", path: "/notifications" },
