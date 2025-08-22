@@ -1,8 +1,18 @@
-import CourseCatalog from './components/modules/CourseCatalog';
-export default function App() {
+// src/App.tsx
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CourseCatalog from "./components/modules/CourseCatalog";
+import CourseDetailPage from "./pages/CourseDetailPage";
+
+const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <CourseCatalog />
-    </div>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<CourseCatalog />} />
+        <Route path="/course/:id" element={<CourseDetailPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;

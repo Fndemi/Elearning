@@ -6,7 +6,8 @@ import type { Course } from "../../shared/types";
 import sample from '../../assets/sample.png';
 
 // Sample courses
-const sampleCourses: Course[] = [
+// Add export here
+export const sampleCourses: Course[] = [
   {
     id: 1,
     title: "Web Development",
@@ -23,38 +24,7 @@ const sampleCourses: Course[] = [
     weeks: 4,
     enrolled: 80,
   },
-  {
-    id: 3,
-    title: "Software Engineering",
-    image: sample,
-    instructor: "Carol Lee",
-    weeks: 8,
-    enrolled: 150,
-  },
-  {
-    id: 4,
-    title: "Database Management",
-    image: sample,
-    instructor: "Daniel Green",
-    weeks: 5,
-    enrolled: 95,
-  },
-  {
-    id: 5,
-    title: "Mobile App Development",
-    image: sample,
-    instructor: "Eve Thompson",
-    weeks: 7,
-    enrolled: 110,
-  },
-  {
-    id: 6,
-    title: "Cloud Computing",
-    image: sample,
-    instructor: "Frank Wilson",
-    weeks: 6,
-    enrolled: 130,
-  },
+  // ...rest of courses
 ];
 
 const COURSES_PER_PAGE = 6;
