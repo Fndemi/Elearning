@@ -12,9 +12,7 @@ export const uploadDocument = async (req: Request, res: Response) => {
             originalname: req.file.originalname,
             mimetype: req.file.mimetype,
             size: req.file.size,
-            // print all keys of req.file for debugging
             keys: Object.keys(req.file),
-            // print entire req.file for deeper debugging (remove in production)
             fullFile: req.file,
           }
         : "No file",
@@ -28,7 +26,6 @@ export const uploadDocument = async (req: Request, res: Response) => {
     // Multer storage-cloudinary typically returns the URL in `req.file.path`
     // and public ID in `req.file.filename`
     const uploadedFile = req.file as any;
-
     const fileUrl = uploadedFile.secure_url || uploadedFile.path;
     const publicId = uploadedFile.public_id || uploadedFile.filename;
 
@@ -84,14 +81,14 @@ export const getAllContent = async (req: Request, res: Response) => {
     res.json({
       success: true,
       count: content.length,
-      content: content.map(item => ({
+      content: content.map((item) => ({
         id: item._id,
         title: item.title,
         description: item.description,
         url: item.fileUrl,
         uploadDate: item.uploadDate,
         contentType: item.contentType,
-      }))
+      })),
     });
   } catch (error) {
     console.error("Error fetching all content:", error);
@@ -101,9 +98,9 @@ export const getAllContent = async (req: Request, res: Response) => {
       errorMessage = error.message;
     }
 
-    res.status(500).json({ 
+    res.status(500).json({
       success: false,
-      message: errorMessage 
+      message: errorMessage,
     });
   }
 };
@@ -128,13 +125,11 @@ export const getContent = async (req: Request, res: Response) => {
     });
   } catch (error) {
     console.error("Error fetching content:", error);
-
     // Proper error handling
     let errorMessage = "Error fetching content";
     if (error instanceof Error) {
       errorMessage = error.message;
     }
-
     res.status(500).json({ message: errorMessage });
   }
 };

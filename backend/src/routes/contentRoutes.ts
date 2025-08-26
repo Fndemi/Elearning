@@ -56,8 +56,6 @@ router.post(
   },
   uploadDocument
 );
-
-
 // DELETE /api/content/:id - Delete content
 router.delete("/:id", deleteContent);
 
